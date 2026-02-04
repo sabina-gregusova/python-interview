@@ -1,0 +1,15 @@
+[project]
+name = "python-medior-interview"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "black>=26.1.0",
+    "click>=8.3.1",
+    "flasgger>=0.9.7.1",
+    "flask>=3.1.2",
+    "mdformat>=1.0.0",
+    "requests>=2.32.5",
+    "ruff>=0.14.14",
+]
