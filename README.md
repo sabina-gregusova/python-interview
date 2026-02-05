@@ -136,7 +136,9 @@ Implement error handling that provides clear, informative messages to help users
 
 You can run the test as follows:
 
-`bash uv run pytest tests/test_endpoints.py `
+```bash
+uv run pytest
+```
 
 ______________________________________________________________________
 
