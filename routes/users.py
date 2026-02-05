@@ -2,7 +2,7 @@ import sqlite3
 
 from flask import Blueprint, jsonify, request
 
-from python_interview.infra import db
+from infra import db
 
 users_blueprint = Blueprint("users", __name__)
 
@@ -46,3 +46,6 @@ def create_user():
         ),
         201,
     )
+
+
+# `POST /users/randomuser`

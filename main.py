@@ -1,7 +1,7 @@
 from flask import Flask
 
-from python_interview.infra.db import close_db, init_db
-from python_interview.routes.users import users_blueprint
+from infra.db import close_db, init_db
+from routes.users import users_blueprint
 
 app = Flask(__name__)
 

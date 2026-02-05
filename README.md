@@ -50,12 +50,12 @@ this step will be useful for subsequent tasks, so make sure to save the request 
 
 1. Start the application (see setup instructions above)
 
-2. Send a `GET` request to `/users` to view all existing users
+1. Send a `GET` request to `/users` to view all existing users
 
    - Use your preferred tool: `curl`, Postman, or a Python script with `requests`
    - Review the response to understand the user data structure
 
-3. Send a `POST` request to `/users` to create a new user
+1. Send a `POST` request to `/users` to create a new user
 
    - Include appropriate user information in the request body
 
@@ -72,9 +72,9 @@ Update `schema.sql` to include a `license` table with the following:
 - A license key field (unique text string, maximum 128 characters)
 - Additional attributes you think would be useful for tracking issued licenses
 
-**Consider:** What information would be valuable to store about a license? Think about relationships to users, expiration dates, status, etc.
+**Consider:** What information would be valuable to store about a license? Think about relationships to users, expiration, status, etc.
 
-### Task 3: Implement License Creation Endpoint
+### Task 3: Implement License creation Endpoint
 
 **Goal:** Create a new API endpoint that generates and stores a license for a specific user.
 
@@ -82,31 +82,61 @@ Update `schema.sql` to include a `license` table with the following:
 
 1. Implement a new endpoint: `POST /users/<int:user_id>/licenses`
 
-   - Add this to `routes/users.py`
+   - Add this to `routes/licenses.py`
    - Register the route with the Flask app
 
-2. Use the provided `generate_license_key()` function (already in the file) to create the license key
+1. Use the provided `generate_license_key()` function (already in the file) to create the license key
 
-3. Return a JSON response containing:
+1. Return a JSON response containing:
 
    - The generated license key
    - The user ID
 
-### Task 4: Error Handling
+### Task 4: Implement endpoint for listing Licenses of a given user
 
-**Goal:** Add robust error handling to all `POST` methods.
+**Goal:** Create a new API endpoint that lists all licenses of a given user.
+
+**Requirements:**
+
+1. Implement a new endpoint: `GET /users/<int:user_id>/licenses`
+
+   - Add this to `routes/licenses.py`
+   - Register the route with the Flask app
+
+1. Use the provided `generate_license_key()` function (already in the file) to create the license key
+
+1. Return a JSON response containing list of licenses of the given user.
+
+### Task 5: Error Handling
+
+**Goal:** Add error handling to all `POST` methods.
 
 **Requirements:**
 
 Implement error handling that provides clear, informative messages to help users understand what went wrong. Consider scenarios where database queries might fail and handle them appropriately.
 
-### Task 5: Third-Party API Integration
+### Task 6: Third-Party API Integration
 
 **Goal:** Integrate a random user generator API to populate test data.
 
 **Requirements:**
 
-In `users_generator.py`, integrate the [Random User API](https://randomuser.me/api/) to fill the `user` database with testing data. Generate 5 random users and insert them into the database using the `/users` endpoint.
+1. Implement a new endpoint: `POST /users/randomuser`
+
+   - Add this to `routes/users.py`
+   - Register the route with the Flask app
+
+1. Use the [Random User API](https://randomuser.me/api/) to generate a random user, parse the response, and insert it into the database. Return the inserted user as a JSON response.
+
+1. Verify that the random user was successfully added to the database by sending a GET request to `/users`.
+
+### Task 7: Testing
+
+**Goal:** Write a simple test with `pytest` for the `/users/randomuser` endpoint in `tests/`. Think about what code you want to test.
+
+You can run the test as follows:
+
+`bash uv run pytest tests/test_endpoints.py `
 
 ______________________________________________________________________
 

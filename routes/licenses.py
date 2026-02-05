@@ -4,7 +4,8 @@ import string
 
 from flask import Blueprint, jsonify
 
-from python_interview.infra import db
+from infra import db
+
 
 # Use this function to generate license keys
 def generate_license_key(length=128):
