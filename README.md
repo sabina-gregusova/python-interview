@@ -19,7 +19,7 @@ uv sync
 Run the Flask application with:
 
 ```bash
-uv run python -m python_interview.main run
+uv run python -m main run
 ```
 
 ## Project Overview
