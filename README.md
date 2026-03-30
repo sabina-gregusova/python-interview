@@ -52,7 +52,7 @@ this step will be useful for subsequent tasks, so make sure to save the request 
 
 1. Send a `GET` request to `/users` to view all existing users
 
-   - Use your preferred tool: `curl`, Postman, or a Python script with `requests`
+   - Use your preferred tool: `curl`, Postman, Python script with `requests` or something else entirely.
    - Review the response to understand the user data structure
 
 1. Send a `POST` request to `/users` to create a new user
@@ -69,7 +69,7 @@ this step will be useful for subsequent tasks, so make sure to save the request 
 
 Update `schema.sql` to include a `license` table with the following:
 
-- A license key field (unique text string, maximum 128 characters)
+- A license key field (unique text string)
 - Additional attributes you think would be useful for tracking issued licenses
 
 **Consider:** What information would be valuable to store about a license? Think about relationships to users, expiration, status, etc.
