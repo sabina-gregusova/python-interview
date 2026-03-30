@@ -103,8 +103,6 @@ Update `schema.sql` to include a `license` table with the following:
    - Add this to `routes/licenses.py`
    - Register the route with the Flask app
 
-1. Use the provided `generate_license_key()` function (already in the file) to create the license key
-
 1. Return a JSON response containing list of licenses of the given user.
 
 ### Task 5: Error Handling
